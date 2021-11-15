@@ -14,6 +14,12 @@ const reducer = (state = initialState, action) => {
         likes: state.likes + 1,
       }; // делаем копию согласно принципу иммутабельности of state
 
+    case 'DECREMENT':
+      return {
+        ...state,
+        likes: state.likes - 1,
+      };
+
     default:
       return state;
   }
