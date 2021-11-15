@@ -7,6 +7,17 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   console.log('reducer >', action);
 
+  switch (action.type) {
+    case 'INCREMENT':
+      return {
+        ...state,
+        likes: state.likes + 1,
+      }; // делаем копию согласно принципу иммутабельности of state
+
+    default:
+      return state;
+  }
+
   return state;
 };
 

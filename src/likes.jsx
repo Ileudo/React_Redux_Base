@@ -10,6 +10,7 @@ const Likes = (props) => {
   );
 };
 
+// получаем доступ к глобальному объекту state в redux через вспомогательную функцию
 function mapStateToProps(state) {
   console.log('mapStateToProps >', state);
   return {
@@ -17,12 +18,13 @@ function mapStateToProps(state) {
   };
 }
 
+// получаем доступ к глобальному объекту state в redux через вспомогательную функцию
 function mapDispatchToProps(dispatch) {
   return {
     onIncrementLikes: () => {
       console.log('click');
-      const action = { type: 'INCREMENT' };
-      dispatch(action);
+      const action = { type: 'INCREMENT' }; // создаем action
+      dispatch(action); // передаем action в reducer
     },
   };
 }
