@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
 const Likes = (props) => {
-  console.log(props);
+  console.log('render >', props);
   return (
     <div className="button-controls">
-      <button>❤ {props.likes}</button>
+      <button onClick={props.onIncrementLikes}>❤ {props.likes}</button>
       <button>Dislike</button>
     </div>
   );
@@ -17,4 +17,14 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Likes);
+function mapDispatchToProps(dispatch) {
+  return {
+    onIncrementLikes: () => {
+      console.log('click');
+      const action = { type: 'INCREMENT' };
+      dispatch(action);
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Likes);

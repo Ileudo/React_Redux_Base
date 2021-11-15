@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 
 const initialState = {
-  likes: 10,
+  likes: 0,
 };
 
 const reducer = (state = initialState, action) => {
