@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { INCREMENT, DECREMENT } from './redux/types';
+import { incrementLikes, decrementLikes } from './redux/actions';
 
 const Likes = (props) => {
   console.log('render >', props);
@@ -11,7 +11,7 @@ const Likes = (props) => {
   );
 };
 
-// получаем доступ к глобальному объекту state в redux через вспомогательную функцию
+// пробрасываем выборочные свойства из хранилища
 function mapStateToProps(state) {
   console.log('mapStateToProps >', state);
   const { likesReducer } = state;
@@ -20,20 +20,13 @@ function mapStateToProps(state) {
   };
 }
 
-// получаем доступ к глобальному объекту state в redux через вспомогательную функцию
+// пробрасываем методы
 function mapDispatchToProps(dispatch) {
   return {
-    onIncrementLikes: () => {
-      console.log('click > increment');
-      const action = { type: INCREMENT }; // создаем action
-      dispatch(action); // передаем action в reducer
-    },
-    onDecrementLikes: () => {
-      console.log('click > decrement');
-      const action = { type: DECREMENT }; // создаем action
-      dispatch(action); // передаем action в reducer
-    },
+    onIncrementLikes: () => dispatch(incrementLikes()),
+    onDecrementLikes: () => dispatch(decrementLikes()),
   };
 }
 
+// подсоединяем компонент к redux с помощью специальной функции connect
 export default connect(mapStateToProps, mapDispatchToProps)(Likes);
