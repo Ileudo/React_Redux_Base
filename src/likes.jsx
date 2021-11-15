@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { INCREMENT, DECREMENT } from './redux/types';
 
 const Likes = (props) => {
   console.log('render >', props);
@@ -13,8 +14,9 @@ const Likes = (props) => {
 // получаем доступ к глобальному объекту state в redux через вспомогательную функцию
 function mapStateToProps(state) {
   console.log('mapStateToProps >', state);
+  const { likesReducer } = state;
   return {
-    likes: state.likes,
+    likes: likesReducer.likes,
   };
 }
 
@@ -23,12 +25,12 @@ function mapDispatchToProps(dispatch) {
   return {
     onIncrementLikes: () => {
       console.log('click > increment');
-      const action = { type: 'INCREMENT' }; // создаем action
+      const action = { type: INCREMENT }; // создаем action
       dispatch(action); // передаем action в reducer
     },
     onDecrementLikes: () => {
       console.log('click > decrement');
-      const action = { type: 'DECREMENT' }; // создаем action
+      const action = { type: DECREMENT }; // создаем action
       dispatch(action); // передаем action в reducer
     },
   };
