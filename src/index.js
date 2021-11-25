@@ -11,8 +11,7 @@ import App from './App.jsx';
 // смотреть на то, как работает redux.
 const store = createStore(
   rootReducer,
-  compose(applyMiddleware(thunk)),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 );
 
 ReactDOM.render(

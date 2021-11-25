@@ -37,8 +37,21 @@ export function commentDelete(id) {
 
 export function commentsLoad() {
   return async (dispatch) => {
+    dispatch(loaderOn());
     const res = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=10');
     const jsonData = await res.json();
-    dispatch({ type: COMMENTS_LOAD, data: jsonData });
+
+    setTimeout(() => {
+      dispatch({ type: COMMENTS_LOAD, data: jsonData });
+      dispatch(loaderOff());
+    }, 1000);
   };
+}
+
+export function loaderOn(id) {
+  return { type: LOADER_DISPLAY_ON };
+}
+
+export function loaderOff(id) {
+  return { type: LOADER_DISPLAY_OFF };
 }

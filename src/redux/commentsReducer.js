@@ -5,7 +5,7 @@ const initialState = {
 };
 
 export const commentsReducer = (state = initialState, action) => {
-  console.log('commentsReducer >', action);
+  // console.log('commentsReducer >', action);
 
   switch (action.type) {
     case COMMENT_CREATE:
