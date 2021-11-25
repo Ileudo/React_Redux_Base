@@ -1,7 +1,7 @@
 import { INPUT_TEXT } from './types';
 
 const initialState = {
-  likes: 0,
+  text: '0',
 };
 
 export const inputReducer = (state = initialState, action) => {
