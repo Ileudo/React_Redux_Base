@@ -1,6 +1,6 @@
 import SingleComment from './SingleComment';
-import { commentCreate } from './redux/actions';
-import { useState } from 'react';
+import { commentCreate, commentsLoad } from './redux/actions';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
 
@@ -23,6 +23,10 @@ const Comments = () => {
     const id = uniqid();
     dispatch(commentCreate(textComment, id));
   };
+
+  useEffect(() => {
+    dispatch(commentsLoad());
+  }, []);
 
   console.log('comments >>>', comments);
 
