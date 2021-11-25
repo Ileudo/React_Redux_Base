@@ -1,9 +1,14 @@
-import { INCREMENT, DECREMENT } from './types';
+import { INCREMENT, DECREMENT, INPUT_TEXT } from './types';
 
+// функция action creator
 export function incrementLikes() {
   return { type: INCREMENT };
-} // функция action creator
+}
 
 export function decrementLikes() {
   return { type: DECREMENT };
+}
+
+export function inputText(text) {
+  return { type: INPUT_TEXT, text };
 }

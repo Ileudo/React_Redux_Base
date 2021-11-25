@@ -13,7 +13,6 @@ const Likes = (props) => {
 
 // пробрасываем выборочные свойства из хранилища
 function mapStateToProps(state) {
-  console.log('mapStateToProps >', state);
   const { likesReducer } = state;
   return {
     likes: likesReducer.likes,
