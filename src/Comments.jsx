@@ -1,8 +1,8 @@
 import SingleComment from './SingleComment';
+import { commentCreate } from './redux/actions';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
-import { commentCreate } from './redux/actions';
 
 const Comments = () => {
   const [textComment, setTextComment] = useState('');
@@ -14,8 +14,6 @@ const Comments = () => {
 
   const dispatch = useDispatch();
 
-  console.log('comments >>>', comments);
-
   const handleInput = (e) => {
     setTextComment(e.target.value);
   };
@@ -25,6 +23,8 @@ const Comments = () => {
     const id = uniqid();
     dispatch(commentCreate(textComment, id));
   };
+
+  console.log('comments >>>', comments);
 
   return (
     <div className="card-comments">
