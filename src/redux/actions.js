@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT, INPUT_TEXT, COMMENT_CREATE, COMMENT_UPDATE } from './types';
+import { INCREMENT, DECREMENT, INPUT_TEXT, COMMENT_CREATE, COMMENT_UPDATE, COMMENT_DELETE } from './types';
 
 // функция action creator
 export function incrementLikes() {
@@ -19,4 +19,8 @@ export function commentCreate(text, id) {
 
 export function commentUpdate(text, id) {
   return { type: COMMENT_UPDATE, data: { text, id } };
+}
+
+export function commentDelete(id) {
+  return { type: COMMENT_DELETE, id };
 }
